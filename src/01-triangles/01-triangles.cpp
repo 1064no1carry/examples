@@ -4,6 +4,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
+#include <iostream>
 #include "vgl.h"
 #include "LoadShaders.h"
 
@@ -32,9 +33,9 @@ init( void )
         {  0.90f, -0.85f }, {  0.90f,  0.90f }, { -0.85f,  0.90f }   // Triangle 2
     };
 
-    glCreateBuffers( NumBuffers, Buffers );
+    glGenBuffers( NumBuffers, Buffers );
     glBindBuffer( GL_ARRAY_BUFFER, Buffers[ArrayBuffer] );
-    glBufferStorage( GL_ARRAY_BUFFER, sizeof(vertices), vertices, 0);
+    glBufferData( GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
     ShaderInfo  shaders[] =
     {
@@ -85,12 +86,17 @@ main( int argc, char** argv )
 #endif
 {
     glfwInit();
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); 
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
 
     GLFWwindow* window = glfwCreateWindow(800, 600, "Triangles", NULL, NULL);
 
     glfwMakeContextCurrent(window);
     gl3wInit();
 
+    std::cout << glGetString(GL_VERSION) << std::endl;
     init();
 
     while (!glfwWindowShouldClose(window))
