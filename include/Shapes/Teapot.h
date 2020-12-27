@@ -4,7 +4,11 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#else
 #include <GL/gl.h>
+#endif
 
 const int NumTeapotVertices = 306;
 const int NumTeapotPatches = 32;
