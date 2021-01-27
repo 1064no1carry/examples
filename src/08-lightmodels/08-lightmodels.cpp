@@ -50,7 +50,7 @@ void LightingExample::Initialize(const char * title)
     render_prog = glCreateProgram();
 
     static const char render_vs[] =
-        "#version 430 core\n"
+        "#version 410 core\n"
         "\n"
         "uniform mat4 model_matrix;\n"
         "uniform mat4 proj_matrix;\n"
@@ -71,7 +71,7 @@ void LightingExample::Initialize(const char * title)
         ;
 
     static const char render_fs[] =
-        "#version 430 core\n"
+        "#version 410 core\n"
         "\n"
         "layout (location = 0) out vec4 color;\n"
         "\n"

@@ -10,6 +10,8 @@
 #include "vapp.h"
 #include "LoadShaders.h"
 
+#include <iostream>
+
 enum VAO_IDs { Triangles, NumVAOs };
 enum Buffer_IDs { ArrayBuffer, NumBuffers };
 enum Attrib_IDs { vPosition = 0 };
@@ -72,12 +74,20 @@ void KeyPressExample::OnKey(int key, int scancode, int action, int mods)
         {
             case GLFW_KEY_M:
                 {
+                    std::cout << "Pressing m" << std::endl;
                     static GLenum  mode = GL_FILL;
 
                     mode = ( mode == GL_FILL ? GL_LINE : GL_FILL );
                     glPolygonMode( GL_FRONT_AND_BACK, mode );
                 }
                 return;
+            case GLFW_KEY_A:
+                {
+                    std::cout << "Pressing A" << std::endl;
+                }
+                return;
+            default:
+                std::cout << "Pressing other key" << std::endl;
         }
     }
 

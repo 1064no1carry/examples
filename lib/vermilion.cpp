@@ -32,13 +32,13 @@ void VermilionApplication::Initialize(const char * title)
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4); 
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1); 
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 
 #ifdef _DEBUG
     glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 #endif
 
-    m_pWindow = glfwCreateWindow(800, 600, title ? title : "OpenGL Application", nullptr, nullptr);
+    m_pWindow = glfwCreateWindow(600, 600, title ? title : "OpenGL Application", nullptr, nullptr);
     glfwSetWindowUserPointer(m_pWindow, this);
     glfwSetWindowSizeCallback(m_pWindow, window_size_callback);
     glfwSetKeyCallback(m_pWindow, key_callback);

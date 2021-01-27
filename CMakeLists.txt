@@ -90,6 +90,7 @@ set(EXAMPLES
   12-particlesimulator
   12-raytracer
   12-simplecompute
+  01-my-triangles
 )
 
 find_package(OpenMP)

@@ -27,6 +27,9 @@ init( void )
 {
     glGenVertexArrays( NumVAOs, VAOs );
     glBindVertexArray( VAOs[Triangles] );
+    GLboolean isVertexArray = glIsVertexArray(VAOs[Triangles]);
+    std::string output = isVertexArray == GL_TRUE? "yes" : "no";
+    std::cout << "is vertex array? " +  output << std::endl;
 
     GLfloat  vertices[NumVertices][2] = {
         { -0.90f, -0.90f }, {  0.85f, -0.90f }, { -0.90f,  0.85f },  // Triangle 1

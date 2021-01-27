@@ -4,3 +4,4 @@ bin/*
 !bin/media/
 *.lib
 lib/*.a
+.DS_Store
